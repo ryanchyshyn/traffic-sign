@@ -40,8 +40,7 @@ You're reading it! and here is a link to my [project code](https://github.com/ud
 
 ####1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
+I used the pandas library to calculate summary statistics of the traffic signs data set:
 
 * The size of training set is 34799
 * The size of the validation set is 4410
@@ -57,25 +56,23 @@ Here is an exploratory visualization of the data set. It is a table showing some
 
 ###Design and Test a Model Architecture
 
-####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+####1. Preprocessing
 
-As a first step, I decided to convert the images to grayscale because ...
+I performed some data preprocessing to make it possible to handle it by the neural network.
+Firstly I converted the image into greyscale using OpenCV cvtColor function:
+`
+cv2.cvtColor(gray, cv2.COLOR_RGB2GRAY)
+`
 
-Here is an example of a traffic sign image before and after grayscaling.
-
+The folling image shows both original and grayscale images:
 ![alt text][image2]
 
-As a last step, I normalized the image data because ...
+The goal of converting is to reduce the memory needed to perform training and processing.
 
-I decided to generate additional data because ... 
+The next step was to perform image data normalization. Normally image data is in the form of byte array (i.e. 0..255 numbers array). 
+Such data is not so handy for processing by neural network, so I converted it into an array of -0.5..0.5 numbers.
 
-To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
+These modifications are performed for all input data: training, validation, testing.
 
 
 ####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
