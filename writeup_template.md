@@ -115,36 +115,25 @@ Here are 8 German traffic signs that I found on the web:
 ![alt text][image7] ![alt text][image8] ![alt text][image9]
 ![alt text][image10] ![alt text][image11]
 
-The first image might be difficult to classify because ...
+Some images are difficult to classify.
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+####2. 
 
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| End of speed limit (80km/h)      		| Go straight or right   									| 
+| Pedestrians     			| Go straight or right 										|
+| Speed limit (60km/h)	      		| Go straight or right				 				|
+| Stop			| Go straight or right      							|
+| Roundabout mandatory			| Dangerous curve to the right      							|
+| No entry			| Go straight or right      							|
+| Pedestrians			| Go straight or right      							|
+| General caution			| Go straight or right      							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was not able to correctly none of traffic signs, which gives an accuracy of 0%. Most likely input images oes not fit training set. Also there is an issue converting and resizing loaded images (it seems color space is changed), however after converting into grayscale this can not affect the results.
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
-
+####3. 
+The code for making predictions on my final model is located in the 21th cell of the Ipython notebook.
