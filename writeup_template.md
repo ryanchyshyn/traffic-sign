@@ -33,7 +33,7 @@ The goals / steps of this project are the following:
 ###Writeup / README
 
 ####1. This document contains details about project implementation
-Here is corresponding Jypiter notebook [project code](/home/rii/work/udacity/traff/CarND-Traffic-Sign-Classifier-Project_copy/Traffic_Sign_Classifier.ipynb)
+Here is corresponding Jypiter notebook [project code](https://github.com/ryanchyshyn/traffic-sign/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ###Data Set Summary & Exploration
 
@@ -127,7 +127,7 @@ A: Our set is 43 symbols in size. So the output of the final fully connected lay
 
 Q: Which parameters were tuned? How were they adjusted and why?
 
-A: In order to increase recognition accuracy I increased EPOCHS parameter to 100 (it gives required accuracy).
+A: In order to increase recognition accuracy I increased EPOCHS parameter to 100.
 
 Q: What are some of the important design choices and why were they chosen?
 
