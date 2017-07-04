@@ -25,6 +25,8 @@ The goals / steps of this project are the following:
 [image9]: ./test_images/6.jpg "Traffic Sign 6"
 [image10]: ./test_images/7.jpg "Traffic Sign 7"
 [image11]: ./test_images/8.jpg "Traffic Sign 8"
+[image12]: ./pedestrians.jpg "Pedestrians training"
+
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -162,11 +164,17 @@ Here are the results of the prediction:
 | Pedestrians			| No passing for vehicles over 3.5 metric tons      							|
 | General caution			| General caution      							|
 
-The model was able to correctly recognize 6 of 8 traffic signs, which gives an accuracy of 75.00%%. 
-Some of incorrectly recognized signs are very close to the actual (for example Pedestrians/Speed limit (70km/h)). Other incorrectly recognized images are not well preprocessed (Pedestrians/No passing for vehicles over 3.5 metric tons).
-So to increase the rate of success recognitions we need: 
-1. Increase resolution of images;
-2. Do better preprocessing.
+The model was able to correctly classified 6 of 8 traffic signs, which gives an accuracy of 75.00%%.
+Two "pedestrians" images were not classivied correctly and here is why:
+
+![alt text][image12]
+
+The training "pedestrians" image is in form of triangle, while our testing image is in form of circle.
+So I would not include these images in the final results making the accuracy 100%%.
+
+To solve this particular case I would train a model for this sign too (round pedestrians).
+
+Our new images are well-prepared making the accuracy so good. In worse cases images can require additional preprocessing like adjusting brighness/constrast, fixing perspective distortions, etc. Separate topic is selecting the sign on complete image.
 
 ####3. 
 The code for making predictions on my final model is located in the 19th cell of the Ipython notebook.
