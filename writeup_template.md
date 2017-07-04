@@ -104,9 +104,28 @@ I suppose this model should work also for traffic signs classifications because 
 I started training the model with initial parameters and found that accuracy is not so good. To get the validation set accuracy to be at least 0.93 I increased EPOCHS to value of 100.
 
 My final model results were:
-Train Accuracy = 0.995
-Validation Accuracy = 0.910
-Test Accuracy = 0.895
+EPOCH 100 ...
+Train Accuracy = 1.000
+Validation Accuracy = 0.949
+Test Accuracy = 0.928
+
+Some explaination in Q&A format:
+Q: What was the first architecture that was tried and why was it chosen?
+A: The initial architecture was based on Lenet network. It was designed to classify numerals.
+
+Q: What were some problems with the initial architecture?
+A: The initial architecture was designed to work with set of 10 symbols.
+
+Q: How was the architecture adjusted and why was it adjusted?
+A: Our set is 43 symbols in size. So the output of the final fully connected layer was adjusted to 43 (instead of 10).
+
+Q: Which parameters were tuned? How were they adjusted and why?
+A: In order to increase recognition accuracy I increased EPOCHS parameter to 100 (it gives required accuracy).
+
+Q: What are some of the important design choices and why were they chosen?
+A: Interesting design choise is to grayscaling all the data. Probably working with RGB data would introduce some improvements, but this will increase memory and CPU comsumption and increase running time.
+
+Also going forward it is clear that new images should be preprocessed before running against a model. This can include rotation, scew, etc. Other way to improve accuracy is to train on bigger set of input data.
 
 ###Test a Model on New Images
 
@@ -127,17 +146,77 @@ Here are the results of the prediction:
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | End of all speed and passing limits      		| End of all speed and passing limits   									| 
-| Pedestrians     			| Roundabout mandatory 										|
-| Speed limit (60km/h)	      		| Speed limit (50km/h)				 				|
+| Pedestrians     			| Speed limit (70km/h) 										|
+| Speed limit (60km/h)	      		| Speed limit (60km/h)				 				|
 | Stop			| Stop      							|
-| Roundabout mandatory			| Right-of-way at the next intersection      							|
+| Roundabout mandatory			| Roundabout mandatory      							|
 | No entry			| No entry      							|
-| Pedestrians			| Ahead only      							|
+| Pedestrians			| No passing for vehicles over 3.5 metric tons      							|
 | General caution			| General caution      							|
 
-The model was able to correctly recognize 4 of 8 traffic signs, which gives an accuracy of 50.00%%. 
-Some of incorrectly recognized signs are very close to actual (for example Speed limit (60km/h)). Other incorrectly recognized images are not well preprocessed (like pedestrians).
+The model was able to correctly recognize 6 of 8 traffic signs, which gives an accuracy of 75.00%%. 
+Some of incorrectly recognized signs are very close to the actual (for example Pedestrians/Speed limit (70km/h)). Other incorrectly recognized images are not well preprocessed (Pedestrians/No passing for vehicles over 3.5 metric tons).
 So to increase the rate of success recognitions we need: 1) increase resolution of images; 2) do better preprocessing.
 
 ####3. 
 The code for making predictions on my final model is located in the 19th cell of the Ipython notebook.
+
+Here is the table that shows predictions accuracy:
+
+```
+Actual sign -  End of all speed and passing limits
+100.000% - End of all speed and passing limits
+0.000% - End of no passing
+0.000% - End of speed limit (80km/h)
+0.000% - Children crossing
+0.000% - Dangerous curve to the right
+
+Actual sign -  Pedestrians
+100.000% - Speed limit (70km/h)
+0.000% - Priority road
+0.000% - Roundabout mandatory
+0.000% - Speed limit (30km/h)
+0.000% - General caution
+
+Actual sign -  Speed limit (60km/h)
+100.000% - Speed limit (60km/h)
+0.000% - Speed limit (50km/h)
+0.000% - Speed limit (30km/h)
+0.000% - Right-of-way at the next intersection
+0.000% - Speed limit (80km/h)
+
+Actual sign -  Stop
+100.000% - Stop
+0.000% - Speed limit (30km/h)
+0.000% - Keep right
+0.000% - Priority road
+0.000% - End of all speed and passing limits
+
+Actual sign -  Roundabout mandatory
+100.000% - Roundabout mandatory
+0.000% - Speed limit (30km/h)
+0.000% - Priority road
+0.000% - Double curve
+0.000% - Right-of-way at the next intersection
+
+Actual sign -  No entry
+100.000% - No entry
+0.000% - Stop
+0.000% - Roundabout mandatory
+0.000% - Speed limit (20km/h)
+0.000% - Speed limit (30km/h)
+
+Actual sign -  Pedestrians
+100.000% - No passing for vehicles over 3.5 metric tons
+0.000% - Ahead only
+0.000% - Speed limit (80km/h)
+0.000% - Keep right
+0.000% - Go straight or left
+
+Actual sign -  General caution
+100.000% - General caution
+0.000% - Pedestrians
+0.000% - Right-of-way at the next intersection
+0.000% - Traffic signals
+0.000% - Speed limit (20km/h)
+```
