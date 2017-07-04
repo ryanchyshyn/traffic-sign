@@ -104,28 +104,36 @@ I suppose this model should work also for traffic signs classifications because 
 I started training the model with initial parameters and found that accuracy is not so good. To get the validation set accuracy to be at least 0.93 I increased EPOCHS to value of 100.
 
 My final model results were:
+```
 EPOCH 100 ...
 Train Accuracy = 1.000
 Validation Accuracy = 0.949
 Test Accuracy = 0.928
+```
 
 Some explaination in Q&A format:
+
 Q: What was the first architecture that was tried and why was it chosen?
+
 A: The initial architecture was based on Lenet network. It was designed to classify numerals.
 
 Q: What were some problems with the initial architecture?
+
 A: The initial architecture was designed to work with set of 10 symbols.
 
 Q: How was the architecture adjusted and why was it adjusted?
+
 A: Our set is 43 symbols in size. So the output of the final fully connected layer was adjusted to 43 (instead of 10).
 
 Q: Which parameters were tuned? How were they adjusted and why?
+
 A: In order to increase recognition accuracy I increased EPOCHS parameter to 100 (it gives required accuracy).
 
 Q: What are some of the important design choices and why were they chosen?
+
 A: Interesting design choise is to grayscaling all the data. Probably working with RGB data would introduce some improvements, but this will increase memory and CPU comsumption and increase running time.
 
-Also going forward it is clear that new images should be preprocessed before running against a model. This can include rotation, scew, etc. Other way to improve accuracy is to train on bigger set of input data.
+Also going forward it seems new images should be preprocessed before running against a model. This can include rotation, scew, etc. Other way to improve accuracy is to train on bigger set of input data.
 
 ###Test a Model on New Images
 
@@ -156,7 +164,9 @@ Here are the results of the prediction:
 
 The model was able to correctly recognize 6 of 8 traffic signs, which gives an accuracy of 75.00%%. 
 Some of incorrectly recognized signs are very close to the actual (for example Pedestrians/Speed limit (70km/h)). Other incorrectly recognized images are not well preprocessed (Pedestrians/No passing for vehicles over 3.5 metric tons).
-So to increase the rate of success recognitions we need: 1) increase resolution of images; 2) do better preprocessing.
+So to increase the rate of success recognitions we need: 
+1. Increase resolution of images;
+2. Do better preprocessing.
 
 ####3. 
 The code for making predictions on my final model is located in the 19th cell of the Ipython notebook.
