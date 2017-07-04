@@ -104,7 +104,9 @@ I suppose this model should work also for traffic signs classifications because 
 I started training the model with initial parameters and found that accuracy is not so good. To get the validation set accuracy to be at least 0.93 I increased EPOCHS to value of 100.
 
 My final model results were:
-* validation set accuracy of 0.934
+Train Accuracy = 0.995
+Validation Accuracy = 0.910
+Test Accuracy = 0.895
 
 ###Test a Model on New Images
 
@@ -124,17 +126,18 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| End of speed limit (80km/h)      		| Go straight or right   									| 
-| Pedestrians     			| Go straight or right 										|
-| Speed limit (60km/h)	      		| Go straight or right				 				|
-| Stop			| Go straight or right      							|
-| Roundabout mandatory			| Dangerous curve to the right      							|
-| No entry			| Go straight or right      							|
-| Pedestrians			| Go straight or right      							|
-| General caution			| Go straight or right      							|
+| End of speed limit (80km/h)      		| End of all speed and passing limits   									| 
+| Pedestrians     			| Right-of-way at the next intersection 										|
+| Speed limit (60km/h)	      		| Speed limit (50km/h)				 				|
+| Stop			| Stop      							|
+| Roundabout mandatory			| Priority road      							|
+| No entry			| No entry      							|
+| Pedestrians			| No passing for vehicles over 3.5 metric tons      							|
+| General caution			| General caution      							|
 
-
-The model was not able to correctly none of traffic signs, which gives an accuracy of 0%. Most likely input images oes not fit training set. Also there is an issue converting and resizing loaded images (it seems color space is changed), however after converting into grayscale this can not affect the results.
+The model was able to correctly recognize 4 of 8 traffic signs, which gives an accuracy of 37.50%. 
+Some of incorrectly recognized signs are very close to actual (for example Speed limit (60km/h)). Other incorrectly recognized images are not well preprocessed (like pedestrians).
+So to increase the rate of success recognitions we need: 1) increase resolution of images; 2) do better preprocessing.
 
 ####3. 
-The code for making predictions on my final model is located in the 21th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 22th cell of the Ipython notebook.
