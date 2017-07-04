@@ -135,9 +135,9 @@ Here are the results of the prediction:
 | Pedestrians			| No passing for vehicles over 3.5 metric tons      							|
 | General caution			| General caution      							|
 
-The model was able to correctly recognize 4 of 8 traffic signs, which gives an accuracy of 37.50%. 
+The model was able to correctly recognize 4 of 8 traffic signs, which gives an accuracy of 50.00%%. 
 Some of incorrectly recognized signs are very close to actual (for example Speed limit (60km/h)). Other incorrectly recognized images are not well preprocessed (like pedestrians).
 So to increase the rate of success recognitions we need: 1) increase resolution of images; 2) do better preprocessing.
 
 ####3. 
-The code for making predictions on my final model is located in the 22th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 19th cell of the Ipython notebook.
