@@ -164,13 +164,13 @@ Here are the results of the prediction:
 | Pedestrians			| No passing for vehicles over 3.5 metric tons      							|
 | General caution			| General caution      							|
 
-The model was able to correctly classified 6 of 8 traffic signs, which gives an accuracy of 75.00%%.
+The model was able to correctly classified 6 of 8 traffic signs, which gives an accuracy of 75.00%.
 Two "pedestrians" images were not classivied correctly and here is why:
 
 ![alt text][image12]
 
 The training "pedestrians" image is in form of triangle, while our testing image is in form of circle.
-So I would not include these images in the final results making the accuracy 100%%.
+So I would not include these images in the final results making the accuracy 100%.
 
 To solve this particular case I would train a model for this sign too (round pedestrians).
 
