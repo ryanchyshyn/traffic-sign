@@ -126,13 +126,13 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| End of speed limit (80km/h)      		| End of all speed and passing limits   									| 
-| Pedestrians     			| Right-of-way at the next intersection 										|
+| End of all speed and passing limits      		| End of all speed and passing limits   									| 
+| Pedestrians     			| Roundabout mandatory 										|
 | Speed limit (60km/h)	      		| Speed limit (50km/h)				 				|
 | Stop			| Stop      							|
-| Roundabout mandatory			| Priority road      							|
+| Roundabout mandatory			| Right-of-way at the next intersection      							|
 | No entry			| No entry      							|
-| Pedestrians			| No passing for vehicles over 3.5 metric tons      							|
+| Pedestrians			| Ahead only      							|
 | General caution			| General caution      							|
 
 The model was able to correctly recognize 4 of 8 traffic signs, which gives an accuracy of 50.00%%. 
