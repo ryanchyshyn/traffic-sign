@@ -90,7 +90,7 @@ My final model consisted of the following layers:
 | RELU					|												|
 | Fully connected		| input 120, output 84        									|
 | RELU					|												|
-| Fully connected		| input 84, output 10        									|
+| Fully connected		| input 84, output 43        									|
  
 
 
@@ -99,8 +99,9 @@ My final model consisted of the following layers:
 mu = 0, sigma = 0.1, EPOCHS = 100, BATCH_SIZE = 128 and rate = 0.001
 `
 
-####4. The neural network model was 
-To get the validation set accuracy to be at least 0.93 I increased EPOCHS to value of 100.
+####4. The neural network model was used earlier for numbers classification.
+I suppose this model should work also for traffic signs classifications because input data is almost the same except the number os samples.
+I started training the model with initial parameters and found that accuracy is not so good. To get the validation set accuracy to be at least 0.93 I increased EPOCHS to value of 100.
 
 My final model results were:
 * validation set accuracy of 0.934
